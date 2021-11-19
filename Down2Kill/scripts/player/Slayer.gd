@@ -20,6 +20,9 @@ var isDead = false
 var dash_speed = 600
 var isDashing = false
 
+# reference to world (current scene)
+# var world = get_tree().current_scene
+
 # ready function, called once at beginning of game
 func _ready():
 	yield(get_tree(), "idle_frame")
@@ -106,7 +109,9 @@ func shoot_handgun():
 	bullet.rotation = atan2(look_v.y, look_v.x)
 	
 	# make bullet a child of the parent
-	get_parent().add_child(bullet)
+	var world = get_tree().current_scene
+	world.add_child(bullet)
+	# get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 	
 	# move the bullet
@@ -129,7 +134,8 @@ func shoot_rifle():
 	bullet.rotation = atan2(look_v.y, look_v.x)
 	
 	# make bullet a child of the parent
-	get_parent().add_child(bullet)
+	var world = get_tree().current_scene
+	world.add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 	
 	# move the bullet
