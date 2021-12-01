@@ -4,7 +4,7 @@
 extends KinematicBody2D
 
 var bullet_velocity = Vector2(1, 0)
-var bullet_speed = 800
+var bullet_speed = 900
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(bullet_velocity.normalized() * delta * bullet_speed)
