@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/slayDeath.mp3-34d0a5251aec55978ea6b72fdc4b40a4.mp3str"
+
+[deps]
+
+source_file="res://sounds/slayDeath.mp3"
+dest_files=[ "res://.import/slayDeath.mp3-34d0a5251aec55978ea6b72fdc4b40a4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

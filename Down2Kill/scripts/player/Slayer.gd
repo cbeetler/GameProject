@@ -28,6 +28,11 @@ var shotgun = preload("res://images/player/shotgun/shotgun_idle.png")
 # reference to slayer sprite
 onready var slayer_sprite = get_node("Sprite")
 
+# reference to death sound
+var deathSound = preload("res://sounds/slayDeath.mp3")
+var gunshotSound = preload("res://sounds/gunshot.mp3")
+var shotgunSound = preload("res://sounds/shotgun.mp3")
+
 # rifle variables
 var fire_rate = 10.0
 onready var update_delta = 1 / fire_rate
@@ -120,6 +125,9 @@ func _physics_process(delta):
 # reloads the current scene
 func kill():
 	isDead = true
+	# if !$AudioStreamPlayer2D.is_playing():
+		# $AudioStreamPlayer2D.stream = deathSound
+		# $AudioStreamPlayer2D.play()
 	hide()
 
 # reloads the current scene, can only happen if player is dead
@@ -153,6 +161,11 @@ func shoot_handgun():
 	
 	# move the bullet
 	bullet.bullet_velocity = get_global_mouse_position() - bullet.position
+	
+	# audio
+	# if !$AudioStreamPlayer2D.is_playing():
+		# $AudioStreamPlayer2D.stream = gunshotSound
+		# $AudioStreamPlayer2D.play()
 
 # shooting shotgun, should fire spread of buckshot
 # in 3 different angles
@@ -191,3 +204,8 @@ func shoot_shotgun():
 		bullet2.bullet_velocity = get_global_mouse_position() - Vector2(90, 90) - bullet.position
 		bullet3.bullet_velocity = get_global_mouse_position() + Vector2(90, 90) - bullet.position
 		# print("bong")
+	
+	# audio
+	# if !$AudioStreamPlayer2D.is_playing():
+		# $AudioStreamPlayer2D.stream = shotgunSound
+		# $AudioStreamPlayer2D.play()
